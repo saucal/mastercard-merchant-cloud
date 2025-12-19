@@ -12,8 +12,8 @@
 		"package": "npm run build && npm run archive",
 		"prearchive": "cd packages/payment-core && npm run prearchive",
 		"archive": "cross-var rm -rf $npm_package_config_wp_org_slug.zip vendor/ node_modules/ && composer install --no-dev --optimize-autoloader && npm install --only=prod --ignore-scripts && composer archive --file=$npm_package_config_wp_org_slug --dir=$npm_package_config_wp_org_slug --format=zip",
-		"postarchive": "rm -rf vendor/ node_modules/ && npm install && composer install && npm run postarchive:core",
-		"postarchive:core": "cd packages/payment-core && composer install",
+		"postarchive": "rm -rf vendor/ node_modules/ && npm install && composer install --no-dev && npm run postarchive:core",
+		"postarchive:core": "cd packages/payment-core && composer install --no-dev",
 		"postpackage": "cross-var unzip -q $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip -d $npm_package_config_wp_org_slug && rm $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip && zip -q -r $npm_package_config_wp_org_slug.zip $npm_package_config_wp_org_slug -qq && rm -rf $npm_package_config_wp_org_slug"
 	},
 	"keywords": [
