@@ -18,7 +18,7 @@ final class Main extends CorePlugin {
 
 	const GATEWAY_ID = 'mastercard_merchant_cloud';
 
-	const PARTNER_SOLUTION_ID = 'WC_PARTNER_SOLUTION_ID';
+	const PARTNER_SOLUTION_ID = 'SAUCAL';
 
 	/**
 	 * Initialize the plugin.
