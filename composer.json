@@ -1,5 +1,5 @@
 {
-	"name": "saucal/payment-core",
+	"name": "mastercard/mastercard-merchant-cloud-for-woo",
 	"description": "This is a short description of what the plugin does. It's displayed in the WordPress admin area.",
 	"homepage": "https://saucal.com/",
 	"type": "wordpress-plugin",
@@ -16,7 +16,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"WooCommerceGatewayAcmePlugin\\": "includes/",
+			"MastercardMerchantCloudForWoo\\": "includes/",
 			"GatewayPaymentCore\\": "packages/payment-core/includes/"
 		}
 	},

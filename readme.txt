@@ -1,4 +1,4 @@
-=== WooCommerce Gateway Acme Plugin ===
+=== Mastercard Merchant Cloud for Woo ===
 Contributors: saucal
 Tags: credit card, payments, woocommerce, woo
 Requires at least: 6.0

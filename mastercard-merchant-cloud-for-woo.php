@@ -1,7 +1,7 @@
 <?php
 /**
  * @wordpress-plugin
- * Plugin Name: WooCommerce Gateway Acme Plugin
+ * Plugin Name: Mastercard Merchant Cloud for Woo
  * Plugin URI:  https://saucal.com/
  * Description: This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:     1.0.0
@@ -10,7 +10,7 @@
  * Requires Plugins: woocommerce
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: woocommerce-gateway-acme-plugin
+ * Text Domain: mastercard-merchant-cloud-for-woo
  * Domain Path: /i18n/languages
  * Requires at least: 6.0
  * Tested up to: 6.9
@@ -19,7 +19,7 @@
  * Requires PHP: 8.0
  */
 
-namespace WooCommerceGatewayAcmePlugin;
+namespace MastercardMerchantCloudForWoo;
 
 // If this file is called directly, abort.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -38,7 +38,7 @@ const PLUGIN_FILE = __FILE__;
 function get_error() {
 	return array(
 		/* translators: 1: composer command. 2: plugin directory */
-		'message'   => esc_html__( 'Your installation of WooCommerce Gateway Acme Plugin plugin is incomplete. Please run %1$s within the %2$s directory.', 'woocommerce-gateway-acme-plugin' ),
+		'message'   => esc_html__( 'Your installation of Mastercard Merchant Cloud for Woo plugin is incomplete. Please run %1$s within the %2$s directory.', 'mastercard-merchant-cloud-for-woo' ),
 		'command'   => 'composer install',
 		'directory' => esc_html( str_replace( ABSPATH, '', __DIR__ ) ),
 	);
@@ -81,7 +81,7 @@ require $autoloader;
 /**
  * Main instance of the plugin.
  */
-function wc_acme_plugin() {
+function wc_mmcfw_plugin() {
 	static $main_instance;
 
 	if ( null === $main_instance ) {
@@ -90,4 +90,4 @@ function wc_acme_plugin() {
 
 	return $main_instance;
 }
-wc_acme_plugin();
+wc_mmcfw_plugin();

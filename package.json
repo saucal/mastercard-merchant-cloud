@@ -1,14 +1,14 @@
 {
-	"name": "woocommerce-gateway-acme-plugin",
+	"name": "mastercard-merchant-cloud-for-woo",
 	"version": "1.0.0",
-	"description": "WooCommerce Gateway ACME Plugin",
+	"description": "Mastercard Merchant Cloud for Woo",
 	"scripts": {
 		"preinstall": "cd packages/payment-core && npm install",
 		"postinstall": "composer install && npm run postarchive:core",
 		"watch": "cd packages/payment-core && npm run watch",
 		"build": "npm run build:core && npm run build:makepot",
 		"build:core": "cd packages/payment-core && npm run build",
-		"build:makepot": "wpi18n makepot --domain-path=\"i18n/languages\" --pot-file=\"woocommerce-gateway-acme-plugin.pot\" --type=\"plugin\" --main-file=\"woocommerce-gateway-acme-plugin.php\" --exclude=\"node_modules,tests,docs,docker,vendor\"",
+		"build:makepot": "wpi18n makepot --domain-path=\"i18n/languages\" --pot-file=\"mastercard-merchant-cloud-for-woo.pot\" --type=\"plugin\" --main-file=\"mastercard-merchant-cloud-for-woo.php\" --exclude=\"node_modules,tests,docs,docker,vendor\"",
 		"package": "npm run build && npm run archive",
 		"prearchive": "cd packages/payment-core && npm run prearchive",
 		"archive": "cross-var rm -rf $npm_package_config_wp_org_slug.zip vendor/ node_modules/ && composer install --no-dev --optimize-autoloader && npm install --only=prod --ignore-scripts && composer archive --file=$npm_package_config_wp_org_slug --dir=$npm_package_config_wp_org_slug --format=zip",
@@ -17,7 +17,7 @@
 		"postpackage": "cross-var unzip -q $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip -d $npm_package_config_wp_org_slug && rm $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip && zip -q -r $npm_package_config_wp_org_slug.zip $npm_package_config_wp_org_slug -qq && rm -rf $npm_package_config_wp_org_slug"
 	},
 	"keywords": [
-		"gateway acme core"
+		"gateway mastercard"
 	],
 	"browserslist": [
 		"> 1%",
@@ -34,10 +34,10 @@
 		"npm": ">=7"
 	},
 	"config": {
-		"wp_org_slug": "woocommerce-gateway-acme-plugin",
+		"wp_org_slug": "mastercard-merchant-cloud-for-woo",
 		"version_replace_paths": [
 			"includes",
-			"woocommerce-gateway-acme-plugin.php",
+			"mastercard-merchant-cloud-for-woo.php",
 			"uninstall.php"
 		]
 	}
