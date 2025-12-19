@@ -1,0 +1,3 @@
+[submodule "packages/payment-core"]
+	path = packages/payment-core
+	url = git@github.com:saucal/payment-module-core.git

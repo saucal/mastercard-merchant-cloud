@@ -1,0 +1,44 @@
+{
+	"name": "woocommerce-gateway-acme-plugin",
+	"version": "1.0.0",
+	"description": "WooCommerce Gateway ACME Plugin",
+	"scripts": {
+		"preinstall": "cd packages/payment-core && npm install",
+		"postinstall": "composer install && npm run postarchive:core",
+		"watch": "cd packages/payment-core && npm run watch",
+		"build": "npm run build:core && npm run build:makepot",
+		"build:core": "cd packages/payment-core && npm run build",
+		"build:makepot": "wpi18n makepot --domain-path=\"i18n/languages\" --pot-file=\"woocommerce-gateway-acme-plugin.pot\" --type=\"plugin\" --main-file=\"woocommerce-gateway-acme-plugin.php\" --exclude=\"node_modules,tests,docs,docker,vendor\"",
+		"package": "npm run build && npm run archive",
+		"prearchive": "cd packages/payment-core && npm run prearchive",
+		"archive": "cross-var rm -rf $npm_package_config_wp_org_slug.zip vendor/ node_modules/ && composer install --no-dev --optimize-autoloader && npm install --only=prod --ignore-scripts && composer archive --file=$npm_package_config_wp_org_slug --dir=$npm_package_config_wp_org_slug --format=zip",
+		"postarchive": "rm -rf vendor/ node_modules/ && npm install && composer install && npm run postarchive:core",
+		"postarchive:core": "cd packages/payment-core && composer install",
+		"postpackage": "cross-var unzip -q $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip -d $npm_package_config_wp_org_slug && rm $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip && zip -q -r $npm_package_config_wp_org_slug.zip $npm_package_config_wp_org_slug -qq && rm -rf $npm_package_config_wp_org_slug"
+	},
+	"keywords": [
+		"gateway acme core"
+	],
+	"browserslist": [
+		"> 1%",
+		"not dead"
+	],
+	"author": "SAU/CAL",
+	"license": "GPL-2.0+",
+	"devDependencies": {
+		"cross-var": "^1.1.0",
+		"node-wp-i18n": "^1.2.7"
+	},
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=7"
+	},
+	"config": {
+		"wp_org_slug": "woocommerce-gateway-acme-plugin",
+		"version_replace_paths": [
+			"includes",
+			"woocommerce-gateway-acme-plugin.php",
+			"uninstall.php"
+		]
+	}
+}

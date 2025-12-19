@@ -1,0 +1,4 @@
+*** WooCommerce Gateway Acme Plugin Changelog ***
+
+2025-10-22 - version 1.0.0
+* Initial release
