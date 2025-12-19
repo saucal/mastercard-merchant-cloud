@@ -3,6 +3,7 @@
 .gitignore export-ignore
 .github export-ignore
 .git export-ignore
+.DS_Store export-ignore
 bin export-ignore
 docker export-ignore
 tests export-ignore
@@ -33,6 +34,7 @@ docker-compose.yml export-ignore
 docs/DOCKER.md export-ignore
 wordpress_org_assets export-ignore
 /src export-ignore
+/packages/payment-core/src export-ignore
 .vscode export-ignore
 *.zip export-ignore
 .nvmrc export-ignore
