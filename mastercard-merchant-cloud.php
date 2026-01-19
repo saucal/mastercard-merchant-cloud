@@ -2,10 +2,10 @@
 /**
  * @wordpress-plugin
  * Plugin Name: Mastercard Merchant Cloud
- * Plugin URI:  https://saucal.com/
+ * Plugin URI:  https://www.mastercard.com/
  * Description: Access a flexible, seamless checkout solution supporting over 35 payment methods and multi-currency options to meet global needs around the world, with ongoing expansion into new markets. Enjoy built-in security features and simple integration for a smooth experience.
  * Version:     1.0.0
- * Author:      SAU/CAL
+ * Author:      Mastercard Merchant Cloud
  * Author URI:  https://www.mastercard.com/
  * Requires Plugins: woocommerce
  * License:     GPL-2.0+
