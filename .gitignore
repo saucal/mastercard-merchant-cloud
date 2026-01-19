@@ -15,7 +15,7 @@ node_modules
 vendor
 
 # Ignore built package
-mastercard-merchant-cloud-for-woo.zip
+mastercard-merchant-cloud.zip
 
 # Editors
 *.esproj

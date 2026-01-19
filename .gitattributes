@@ -39,7 +39,7 @@ wordpress_org_assets export-ignore
 *.zip export-ignore
 .nvmrc export-ignore
 node_modules export-ignore
-mastercard-merchant-cloud-for-woo export-ignore
+mastercard-merchant-cloud export-ignore
 build export-ignore
 assets/343.js export-ignore
 assets/663.js export-ignore

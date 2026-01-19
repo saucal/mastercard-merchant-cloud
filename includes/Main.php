@@ -2,14 +2,14 @@
 /**
  * Main class.
  *
- * @package  MastercardMerchantCloudForWoo
+ * @package  MastercardMerchantCloud
  * @version  1.0.0
  */
 
-namespace MastercardMerchantCloudForWoo;
+namespace MastercardMerchantCloud;
 
 use GatewayPaymentCore\CorePlugin;
-use MastercardMerchantCloudForWoo\Gateways\WC_Mastercard_Merchant_Cloud_Payment_Gateway_CC;
+use MastercardMerchantCloud\Gateways\WC_Mastercard_Merchant_Cloud_Payment_Gateway_CC;
 
 /**
  * Base Plugin class holding generic functionality.
@@ -25,7 +25,7 @@ final class Main extends CorePlugin {
 	 */
 	public function init() {
 		$this->plugin_id                 = self::GATEWAY_ID;
-		$this->text_domain               = 'mastercard-merchant-cloud-for-woo';
+		$this->text_domain               = 'mastercard-merchant-cloud';
 		$this->plugin_file               = PLUGIN_FILE;
 		$this->merchant_registration_url = 'https://mastercard.com';
 
@@ -41,6 +41,6 @@ final class Main extends CorePlugin {
 	 * @return string
 	 */
 	public function get_plugin_title() {
-		return esc_html__( 'Mastercard Merchant Cloud for Woo', 'mastercard-merchant-cloud-for-woo' );
+		return esc_html__( 'Mastercard Merchant Cloud', 'mastercard-merchant-cloud' );
 	}
 }

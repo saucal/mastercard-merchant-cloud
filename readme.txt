@@ -1,4 +1,4 @@
-=== Mastercard Merchant Cloud for Woo ===
+=== Mastercard Merchant Cloud ===
 Contributors: saucal
 Tags: credit card, payments, woocommerce, woo
 Requires at least: 6.0

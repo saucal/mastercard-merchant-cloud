@@ -1,4 +1,4 @@
-*** Mastercard Merchant Cloud for Woo Changelog ***
+*** Mastercard Merchant Cloud Changelog ***
 
 2025-10-22 - version 1.0.0
 * Initial release

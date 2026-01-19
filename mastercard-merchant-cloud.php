@@ -1,7 +1,7 @@
 <?php
 /**
  * @wordpress-plugin
- * Plugin Name: Mastercard Merchant Cloud for Woo
+ * Plugin Name: Mastercard Merchant Cloud
  * Plugin URI:  https://saucal.com/
  * Description: Access a flexible, seamless checkout solution supporting over 35 payment methods and multi-currency options to meet global needs around the world, with ongoing expansion into new markets. Enjoy built-in security features and simple integration for a smooth experience.
  * Version:     1.0.0
@@ -10,7 +10,7 @@
  * Requires Plugins: woocommerce
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: mastercard-merchant-cloud-for-woo
+ * Text Domain: mastercard-merchant-cloud
  * Domain Path: /i18n/languages
  * Requires at least: 6.0
  * Tested up to: 6.9
@@ -19,7 +19,7 @@
  * Requires PHP: 8.0
  */
 
-namespace MastercardMerchantCloudForWoo;
+namespace MastercardMerchantCloud;
 
 // If this file is called directly, abort.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -38,7 +38,7 @@ const PLUGIN_FILE = __FILE__;
 function get_error() {
 	return array(
 		/* translators: 1: composer command. 2: plugin directory */
-		'message'   => esc_html__( 'Your installation of Mastercard Merchant Cloud for Woo plugin is incomplete. Please run %1$s within the %2$s directory.', 'mastercard-merchant-cloud-for-woo' ),
+		'message'   => esc_html__( 'Your installation of Mastercard Merchant Cloud plugin is incomplete. Please run %1$s within the %2$s directory.', 'mastercard-merchant-cloud' ),
 		'command'   => 'composer install',
 		'directory' => esc_html( str_replace( ABSPATH, '', __DIR__ ) ),
 	);

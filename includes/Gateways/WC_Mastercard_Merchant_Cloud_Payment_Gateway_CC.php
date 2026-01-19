@@ -4,18 +4,18 @@
  *
  * @class       WC_Mastercard_Merchant_Cloud_Payment_Gateway_CC
  * @version     1.0.0
- * @package     MastercardMerchantCloudForWoo/Gateway/
+ * @package     MastercardMerchantCloud/Gateway/
  */
 
-namespace MastercardMerchantCloudForWoo\Gateways;
+namespace MastercardMerchantCloud\Gateways;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 use GatewayPaymentCore\Gateways\WC_Abstract_Payment_Gateway_CC;
-use MastercardMerchantCloudForWoo\Main;
-use function MastercardMerchantCloudForWoo\wc_mmcfw_plugin;
+use MastercardMerchantCloud\Main;
+use function MastercardMerchantCloud\wc_mmcfw_plugin;
 
 /**
  * Show the payment form for Payment Gateway.
