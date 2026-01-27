@@ -27,11 +27,29 @@ final class Main extends CorePlugin {
 		$this->plugin_id                 = self::GATEWAY_ID;
 		$this->text_domain               = 'mastercard-merchant-cloud';
 		$this->plugin_file               = PLUGIN_FILE;
-		$this->merchant_registration_url = 'https://mastercard.com';
+		$this->merchant_registration_url = 'https://woocommerce.com/document/mastercard-merchant-cloud/#merchant-account-registration';
 
 		$this->registered_gateways = array(
 			self::GATEWAY_ID => WC_Mastercard_Merchant_Cloud_Payment_Gateway_CC::class,
 		);
+	}
+
+	/**
+	 * Get the merchant registration URL.
+	 *
+	 * @return string
+	 */
+	public function merchant_registration_message() {
+		$message = __( 'You must have a merchant account with a compatible payment service provider (PSP) before using this plugin.', $this->payment_core()->text_domain() );
+
+		$message .= ' ' . sprintf(
+			/* translators: %s: Merchant registration URL */
+			__( 'Don\'t have an account? %1$sFollow the instructions here%2$s', $this->payment_core()->text_domain() ),
+			'<a href="' . esc_url( $this->merchant_registration_url ) . '" target="_blank">',
+			'</a>'
+		);
+
+		return $message;
 	}
 
 
