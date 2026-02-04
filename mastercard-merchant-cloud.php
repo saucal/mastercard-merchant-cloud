@@ -4,7 +4,7 @@
  * Plugin Name: Mastercard Merchant Cloud
  * Plugin URI:  https://wordpress.org/plugins/mastercard-merchant-cloud
  * Description: Access a flexible, seamless checkout solution supporting over 35 payment methods and multi-currency options to meet global needs around the world, with ongoing expansion into new markets. Enjoy built-in security features and simple integration for a smooth experience.
- * Version:     1.0.0-rc11
+ * Version:     1.0.0
  * Author:      Mastercard Merchant Cloud
  * Author URI:  https://www.mastercard.com/
  * Requires Plugins: woocommerce
