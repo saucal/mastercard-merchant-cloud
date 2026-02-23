@@ -39,8 +39,8 @@ final class WC_Mastercard_Merchant_Cloud_Payment_Gateway_CC extends WC_Abstract_
 
 		// Load the gateway settings.
 		$this->id                 = self::ID;
-		$this->method_title       = __( 'Mastercard Merchant Cloud', $this->core_plugin->text_domain() );
-		$this->method_description = __( 'Accept secure payments on your WooCommerce store.', $this->core_plugin->text_domain() );
+		$this->method_title       = __( 'Mastercard Merchant Cloud', '__PAYMENTS_CORE_TEXT_DOMAIN__' );
+		$this->method_description = __( 'Accept secure payments on your WooCommerce store.', '__PAYMENTS_CORE_TEXT_DOMAIN__' );
 		$this->icon               = $this->core_plugin->payment_core()->utils()->plugin_url() . '/assets/images/logo.png';
 
 		$this->build();

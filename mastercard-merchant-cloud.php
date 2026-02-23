@@ -10,7 +10,7 @@
  * Requires Plugins: woocommerce
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: mastercard-merchant-cloud
+ * Text Domain: __PAYMENTS_CORE_TEXT_DOMAIN__
  * Domain Path: /i18n/languages
  * Requires at least: 6.0
  * Tested up to: 6.9

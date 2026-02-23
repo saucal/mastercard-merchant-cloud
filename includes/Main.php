@@ -25,7 +25,6 @@ final class Main extends CorePlugin {
 	 */
 	public function init() {
 		$this->plugin_id                 = self::GATEWAY_ID;
-		$this->text_domain               = 'mastercard-merchant-cloud';
 		$this->plugin_file               = PLUGIN_FILE;
 		$this->merchant_registration_url = 'https://woocommerce.com/document/mastercard-merchant-cloud/#merchant-account-registration';
 
@@ -40,11 +39,11 @@ final class Main extends CorePlugin {
 	 * @return string
 	 */
 	public function merchant_registration_message() {
-		$message = __( 'You must have a merchant account with a compatible payment service provider (PSP) before using this plugin.', $this->payment_core()->text_domain() );
+		$message = __( 'You must have a merchant account with a compatible payment service provider (PSP) before using this plugin.', '__PAYMENTS_CORE_TEXT_DOMAIN__' );
 
 		$message .= ' ' . sprintf(
 			/* translators: %s: Merchant registration URL */
-			__( 'Don\'t have an account? %1$sFollow the instructions here%2$s', $this->payment_core()->text_domain() ),
+			__( 'Don\'t have an account? %1$sFollow the instructions here%2$s', '__PAYMENTS_CORE_TEXT_DOMAIN__' ),
 			'<a href="' . esc_url( $this->merchant_registration_url ) . '" target="_blank">',
 			'</a>'
 		);
@@ -59,6 +58,6 @@ final class Main extends CorePlugin {
 	 * @return string
 	 */
 	public function get_plugin_title() {
-		return esc_html__( 'Mastercard Merchant Cloud', 'mastercard-merchant-cloud' );
+		return esc_html__( 'Mastercard Merchant Cloud', '__PAYMENTS_CORE_TEXT_DOMAIN__' );
 	}
 }
