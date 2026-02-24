@@ -4,22 +4,12 @@
 	"description": "Mastercard Merchant Cloud",
 	"scripts": {
 		"preinstall": "cd packages/payment-core && npm install",
-		"postinstall": "composer install && npm run postarchive:core",
+		"postinstall": "composer install && cd packages/payment-core && composer install",
 		"watch": "cd packages/payment-core && npm run watch",
 		"build": "npm run build:core && npm run build:makepot",
 		"build:core": "cd packages/payment-core && npm run build",
 		"build:makepot": "wpi18n makepot --domain-path=\"i18n/languages\" --pot-file=\"mastercard-merchant-cloud.pot\" --type=\"plugin\" --main-file=\"mastercard-merchant-cloud.php\" --exclude=\"node_modules,tests,docs,docker,vendor\"",
-		"package": "npm run replace-domain && npm run replace-prefix && npm run build && npm run archive",
-		"replace-domain": "node packages/payment-core/scripts/replace-text-domain.js __PAYMENTS_CORE_TEXT_DOMAIN__ mastercard-merchant-cloud --base-dir=.",
-		"replace-prefix": "node packages/payment-core/scripts/replace-text-domain.js PAYMENTS_CORE_HOOK_PREFIX mastercard_merchant_cloud --base-dir=.",
-		"prearchive": "npm run prearchive:core",
-		"prearchive:core": "cd packages/payment-core && npm run prearchive",
-		"archive": "cross-var rm -rf $npm_package_config_wp_org_slug.zip vendor/ node_modules/ && composer install --no-dev --optimize-autoloader && npm install --only=prod --ignore-scripts && composer archive --file=$npm_package_config_wp_org_slug --dir=$npm_package_config_wp_org_slug --format=zip",
-		"postarchive": "npm run postarchive:restore-domain && npm run postarchive:restore-domain-core && rm -rf vendor/ node_modules/ && npm install && composer install && npm run postarchive:core",
-		"postarchive:restore-domain": "git checkout -- . ':!packages'",
-		"postarchive:restore-domain-core": "cd packages/payment-core && git checkout -- .",
-		"postarchive:core": "cd packages/payment-core && composer install",
-		"postpackage": "cross-var unzip -q $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip -d $npm_package_config_wp_org_slug && rm $npm_package_config_wp_org_slug/$npm_package_config_wp_org_slug.zip && zip -q -r $npm_package_config_wp_org_slug.zip $npm_package_config_wp_org_slug -qq && rm -rf $npm_package_config_wp_org_slug"
+		"package": "bash scripts/package.sh"
 	},
 	"keywords": [
 		"gateway mastercard"
@@ -31,7 +21,6 @@
 	"author": "SAU/CAL",
 	"license": "GPL-2.0+",
 	"devDependencies": {
-		"cross-var": "^1.1.0",
 		"node-wp-i18n": "^1.2.7"
 	},
 	"engines": {
