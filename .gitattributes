@@ -41,5 +41,6 @@ wordpress_org_assets export-ignore
 node_modules export-ignore
 mastercard-merchant-cloud export-ignore
 build export-ignore
+/scripts export-ignore
 assets/343.js export-ignore
 assets/663.js export-ignore

@@ -13,6 +13,7 @@ echo "==> Building assets in source directory..."
 
 echo "==> Copying files to staging directory..."
 # Derive exclude list from .gitattributes export-ignore rules at runtime.
+# Recursively finds all .gitattributes and prefixes patterns with their relative path.
 # Include package manager files first (needed for installs, deleted before zipping),
 # then apply excludes — rsync processes filter rules in order, first match wins.
 {
@@ -20,7 +21,18 @@ echo "==> Copying files to staging directory..."
 	echo "+ composer.lock"
 	echo "+ packages/payment-core/composer.json"
 	echo "+ packages/payment-core/composer.lock"
-	grep 'export-ignore' "$SOURCE_DIR/.gitattributes" | awk '{print "- " $1}'
+	while IFS= read -r attr_file; do
+		dir="$(dirname "$attr_file")"
+		prefix="${dir#"$SOURCE_DIR"}"
+		prefix="${prefix#/}"
+		while IFS= read -r pattern; do
+			if [ -n "$prefix" ]; then
+				echo "- $prefix/$pattern"
+			else
+				echo "- $pattern"
+			fi
+		done < <(grep 'export-ignore' "$attr_file" | awk '{print $1}')
+	done < <(find "$SOURCE_DIR" -name .gitattributes -not -path '*/vendor/*' -not -path '*/node_modules/*')
 	echo "- vendor"
 	echo "- /scripts"
 } | rsync -a --filter="merge -" "$SOURCE_DIR/" "$STAGE/"
