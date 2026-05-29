@@ -14,13 +14,9 @@ echo "==> Building assets in source directory..."
 echo "==> Copying files to staging directory..."
 # Derive exclude list from .gitattributes export-ignore rules at runtime.
 # Recursively finds all .gitattributes and prefixes patterns with their relative path.
-# Include package manager files first (needed for installs, deleted before zipping),
-# then apply excludes — rsync processes filter rules in order, first match wins.
+# Composer files are no longer export-ignored, so they reach the stage and ship in the
+# package — apply the derived excludes via rsync filter (rules processed in order, first match wins).
 {
-	echo "+ composer.json"
-	echo "+ composer.lock"
-	echo "+ packages/payment-core/composer.json"
-	echo "+ packages/payment-core/composer.lock"
 	while IFS= read -r attr_file; do
 		dir="$(dirname "$attr_file")"
 		prefix="${dir#"$SOURCE_DIR"}"
@@ -57,10 +53,6 @@ mkdir -p "$STAGE/i18n/languages"
 	--type="plugin" \
 	--main-file="$SLUG.php" \
 	--exclude="node_modules,tests,docs,docker,vendor")
-
-echo "==> Cleaning up package manager files..."
-rm -f "$STAGE/composer.lock"
-rm -f "$STAGE/packages/payment-core/composer.lock"
 
 echo "==> Creating archive..."
 (cd "$BUILD_DIR" && zip -q -r "$SLUG.zip" "$SLUG")
