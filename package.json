@@ -1,6 +1,6 @@
 {
 	"name": "mastercard-merchant-cloud",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Mastercard Merchant Cloud",
 	"scripts": {
 		"preinstall": "cd packages/payment-core && npm install",
