@@ -1,6 +1,6 @@
 === Mastercard Merchant Cloud ===
 Contributors: saucal
-Tags: credit card, payments, woocommerce, woo
+Tags: credit card, payments, woocommerce, woo, mastercard
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
