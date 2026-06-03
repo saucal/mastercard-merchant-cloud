@@ -34,9 +34,6 @@ final class WC_Mastercard_Merchant_Cloud_Payment_Gateway_CC extends WC_Abstract_
 		// Load the plugin instance.
 		$this->core_plugin = wc_mmcfw_plugin();
 
-		// Set the partner solution ID.
-		$this->partner_solution_id = Main::PARTNER_SOLUTION_ID;
-
 		// Load the gateway settings.
 		$this->id                 = self::ID;
 		$this->method_title       = __( 'Mastercard Merchant Cloud', '__PAYMENTS_CORE_TEXT_DOMAIN__' );

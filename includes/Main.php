@@ -25,6 +25,7 @@ final class Main extends CorePlugin {
 	 */
 	public function init() {
 		$this->plugin_id                 = self::GATEWAY_ID;
+		$this->partner_solution_id       = self::PARTNER_SOLUTION_ID;
 		$this->plugin_file               = PLUGIN_FILE;
 		$this->merchant_registration_url = 'https://woocommerce.com/document/mastercard-merchant-cloud/#merchant-account-registration';
 
