@@ -59,8 +59,8 @@ mkdir -p "$STAGE/i18n/languages"
 	--exclude="node_modules,tests,docs,docker,vendor")
 
 echo "==> Cleaning up package manager files..."
-rm -f "$STAGE/composer.json" "$STAGE/composer.lock"
-rm -f "$STAGE/packages/payment-core/composer.json" "$STAGE/packages/payment-core/composer.lock"
+rm -f "$STAGE/composer.lock"
+rm -f "$STAGE/packages/payment-core/composer.lock"
 
 echo "==> Creating archive..."
 (cd "$BUILD_DIR" && zip -q -r "$SLUG.zip" "$SLUG")

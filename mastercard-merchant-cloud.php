@@ -13,7 +13,7 @@
  * Text Domain: __PAYMENTS_CORE_TEXT_DOMAIN__
  * Domain Path: /i18n/languages
  * Requires at least: 6.0
- * Tested up to: 6.9
+ * Tested up to: 7.0
  * WC requires at least: 9.0
  * WC tested up to: 10.3.6
  * Requires PHP: 8.0

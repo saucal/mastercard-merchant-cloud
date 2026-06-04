@@ -44,3 +44,4 @@ build export-ignore
 /scripts export-ignore
 assets/343.js export-ignore
 assets/663.js export-ignore
+.claude export-ignore
