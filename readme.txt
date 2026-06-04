@@ -60,7 +60,7 @@ Yes. A valid SSL certificate (HTTPS) is required to process payments.
 
 == External services ==
 
-This plugin connects to the Mastercard Merchant Cloud payment gateway (Mastercard Gateway API) to process payments. This service is required for the plugin to function. The gateway endpoint is region-specific and selected by the Merchant Region you configure (for example `https://<region-gateway-host>/api/rest/...`). This service is provided by Mastercard. See Mastercard's terms of service: TERMS_URL_PLACEHOLDER and privacy policy: PRIVACY_URL_PLACEHOLDER.
+This plugin connects to the Mastercard Merchant Cloud payment gateway (Mastercard Gateway API) to process payments. This service is required for the plugin to function. The gateway endpoint is region-specific and selected by the Merchant Region you configure (for example `https://<region-gateway-host>/api/rest/...`). This service is provided by Mastercard. See Mastercard's terms of service: https://developer.mastercard.com/terms-of-use and privacy policy: https://www.mastercard.com/us/en/global-privacy-notice.html.
 
 == Source code ==
 
