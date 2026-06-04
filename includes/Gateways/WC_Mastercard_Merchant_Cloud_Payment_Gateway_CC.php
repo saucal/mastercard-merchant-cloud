@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use GatewayPaymentCore\Gateways\WC_Abstract_Payment_Gateway_CC;
 use MastercardMerchantCloud\Main;
-use function MastercardMerchantCloud\wc_mmcfw_plugin;
+use function MastercardMerchantCloud\mastercard_merchant_cloud;
 
 /**
  * Show the payment form for Payment Gateway.
@@ -32,7 +32,7 @@ final class WC_Mastercard_Merchant_Cloud_Payment_Gateway_CC extends WC_Abstract_
 	 */
 	public function __construct() {
 		// Load the plugin instance.
-		$this->core_plugin = wc_mmcfw_plugin();
+		$this->core_plugin = mastercard_merchant_cloud();
 
 		// Load the gateway settings.
 		$this->id                 = self::ID;

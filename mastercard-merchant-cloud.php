@@ -45,49 +45,53 @@ function get_error() {
 }
 
 /**
- * Autoload packages.
- */
-$autoloader = __DIR__ . '/vendor/autoload.php';
-
-if ( ! is_readable( $autoloader ) ) {
-
-	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-		$composer_error = get_error();
-		error_log( sprintf( $composer_error['message'], '`' . $composer_error['command'] . '`', '`' . $composer_error['directory'] . '`' ) ); // phpcs:ignore
-	}
-
-	/**
-	 * Outputs an admin notice if composer install has not been ran.
-	 */
-	add_action(
-		'admin_notices',
-		function () {
-			$composer_error = get_error();
-			?>
-			<div class="notice notice-error">
-				<p>
-					<?php printf( $composer_error['message'], '<code>' . $composer_error['command'] . '</code>', '<code>' . $composer_error['directory'] . '</code>' ); // phpcs:ignore ?>
-				</p>
-			</div>
-			<?php
-		}
-	);
-
-	return;
-}
-
-require $autoloader;
-
-/**
  * Main instance of the plugin.
  */
-function wc_mmcfw_plugin() {
-	static $main_instance;
+function mastercard_merchant_cloud() {
+	static $plugin;
 
-	if ( null === $main_instance ) {
-		$main_instance = new Main();
+	if ( ! isset( $plugin ) ) {
+		$autoloader = __DIR__ . '/vendor/autoload.php';
+		if ( file_exists( $autoloader ) ) {
+			require $autoloader;
+		}
+
+		$plugin = new Main();
 	}
 
-	return $main_instance;
+	return $plugin;
 }
-wc_mmcfw_plugin();
+
+/**
+ * Initialize the plugin.
+ */
+function mastercard_merchant_cloud_init() {
+	if ( ! is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$composer_error = get_error();
+			error_log( sprintf( $composer_error['message'], '`' . $composer_error['command'] . '`', '`' . $composer_error['directory'] . '`' ) ); // phpcs:ignore
+		}
+
+		add_action( 'admin_notices', __NAMESPACE__ . '\\mastercard_merchant_cloud_missing_autoloader_notice' );
+		return;
+	}
+
+	mastercard_merchant_cloud();
+}
+
+/**
+ * Display an admin notice if the autoloader is missing.
+ */
+function mastercard_merchant_cloud_missing_autoloader_notice() {
+	$composer_error = get_error();
+	?>
+	<div class="notice notice-error">
+		<p>
+			<?php printf( $composer_error['message'], '<code>' . $composer_error['command'] . '</code>', '<code>' . $composer_error['directory'] . '</code>' ); // phpcs:ignore ?>
+		</p>
+	</div>
+	<?php
+}
+
+// Initialize the plugin.
+mastercard_merchant_cloud_init();
